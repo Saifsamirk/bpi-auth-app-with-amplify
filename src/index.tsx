@@ -1,37 +1,18 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Confirmation from "./pages/Confirmation";
-import Error from "./pages/Error";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import { Amplify } from "aws-amplify";
+import { AmplifyProvider } from "@aws-amplify/ui-react";
+import Placeholder from "./pages/Placeholder";
+import config from "./aws-exports";
+import "@aws-amplify/ui-react/styles.css";
 
-const router = createBrowserRouter([
-  {
-    path: "/home",
-    element: <Home />,
-  },
-  {
-    path: "/",
-    element: <Login />,
-    errorElement: <Error />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/verify",
-    element: <Confirmation />,
-  },
-]);
+Amplify.configure(config);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <AmplifyProvider>
+    <Placeholder user={undefined} signOut={undefined} />
+  </AmplifyProvider>
 );

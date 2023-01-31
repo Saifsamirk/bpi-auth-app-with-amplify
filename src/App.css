@@ -11,18 +11,10 @@ body{
   height: 100%;
   background-color: lightsteelblue;
 }
-input, button{
+button{
   padding: 20px; 
   margin-bottom: 20px;
   font-size: large;
-}
-
-input{
-  outline: none;
-}
-
-input::placeholder{
-  text-transform: capitalize;
 }
 
 button {
@@ -32,13 +24,4 @@ button {
 
 button:active{
   transform: scale(0.98);
-}
-
-.error-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  min-height: 100vh;
 }
